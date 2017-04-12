@@ -5,7 +5,7 @@ Using:
 * [x] [Angular](https://angular.io/)
 
 
-## GO:
+## GO-ANGULAR:
  ![GitHub](/img/go-angular.png)
 
 
