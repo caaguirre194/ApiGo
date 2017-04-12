@@ -1,12 +1,8 @@
-# Go
-Exercises in Go, proyect in Go
-
-
+# ApiGo
 
 Using:
-* [x] [Go](https://golang.org/)
-
-
+* [x] [Go](https://golang.org/) 
+* [x] [Angular](https://angular.io/)
 
 
 ## GO:
@@ -17,6 +13,5 @@ Using:
 
 Autor:
 *  [GitHub](https://github.com/AndresWick)
-   
 	 @AndresWick
 
