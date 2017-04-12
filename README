@@ -1,5 +1,22 @@
-Tutorial Go Angular
+# Go
+Exercises in Go, proyect in Go
 
-goserver: contiene el archivo main.go que sirve un api rest para gestionar nombres de usuarios
 
-angularclient: contiene el cliente escrito usando angularjs, se sugiere desplegarlo en apache
+
+Using:
+* [x] [Go](https://golang.org/)
+
+
+
+
+## GO:
+ ![GitHub](https://github.com/AndresWick/Go/tree/master/img/go.png)
+
+
+
+
+Autor:
+*  [GitHub](https://github.com/AndresWick)
+   
+	 @AndresWick
+
