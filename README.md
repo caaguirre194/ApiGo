@@ -6,9 +6,7 @@ Using:
 
 
 ## GO:
- ![GitHub](https://github.com/AndresWick/Go/tree/master/img/go.png)
-
-
+ ![GitHub](/img/go-angular.png)
 
 
 Autor:
