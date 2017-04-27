@@ -28,7 +28,7 @@ function testController($scope, testRequest) {
 
 	$scope.deleteUser = function(){
 		testRequest.del($scope.user_id).success(function (data){
-			prompt("Usuario Eliminado.");
+			alert("Usuario Eliminado.");
 			$scope.user.exist=0;
 			$scope.getAllUsers();
 
@@ -65,6 +65,7 @@ function testController($scope, testRequest) {
 		}
 		testRequest.add(firstname,lastname).success(function (){
 			$scope.getAllUsers();
+			$(".alert").alert()
 		});
 	};
 
