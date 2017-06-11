@@ -14,12 +14,12 @@
 	<nav class="navbar navbar-inverse">
 <div class="container-fluid">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">WebSiteName</a>
+		<a class="navbar-brand" href="index.html">UD</a>
 	</div>
 	<ul class="nav navbar-nav">
 		<li class="active"><a href="index.html">Home</a></li>
-		<li><a href="page1.html">Page 1</a></li>
-		<li><a href="#">Page 2</a></li>
+		<li><a href="http://localhost:8080/api/v1/users">Estudiantes</a></li>
+
 	</ul>
 
 </div>
@@ -28,16 +28,16 @@
 <body ng-app='myApp' ng-controller="testController">
 	<header class="jumbotron">
 
-<h1>Usuarios GeoCode</h1>
+<h1>Estudiantes UD</h1>
 
 	</header>
 	<section ng-controller="getAllUsers" class="container-fluid">
 		<section ng-if="users.exist==1" class="col-sm-3 well">
-			<h3 class="glyphicon glyphicon-user"> Usuarios: </h3>
+			<h3 class="glyphicon glyphicon-user"> Activos: </h3>
 			<ul class="nav nav-pills nav-stacked">
 				<li ng-repeat="p in users">
 					<a href="" ng-click="selectId(p.id)" class="glyphicon glyphicon-search">
-						{{p.id + " " + p.firstname + " " + p.lastname}}
+						{{p.id + " " + p.firstname + " " + p.lastname + ""}}
 					</a>
 				</li>
 			</ul>
@@ -45,6 +45,7 @@
 		<section ng-if="user.exist==1" class="col-sm-6">
 			<h3 class="glyphicon glyphicon-user"> Usuario # {{user.id}}</h3>
 			<form>
+				Código: <input type="text" ng-model="user.code"> <br>
 				Nombre: <input type="text" ng-model="user.firstname"> <br>
 				Apellido: <input type="text" ng-model="user.lastname"> <br>
 				<pre>form = {{user | json}}</pre>
@@ -54,15 +55,14 @@
 		<section ng-if="user.exist!=1" class="col-sm-6">
 			<h3> Nuevo Usuario </h3>
 			<form>
+				Código: <input type="text" ng-model="user.code"> <br>
 				Nombre: <input type="text" ng-model="user.firstname"> <br>
 				Apellido: <input type="text" ng-model="user.lastname"> <br>
-
-
 				<md-input-container flex="50">
-				 <label>Project Type</label>
+				 <label>-></label>
 				 <md-select name="type" ng-model="project.type" required>
-					 <md-option value="app">Application</md-option>
-					 <md-option value="web">Website</md-option>
+					 <md-option value="app">Datos</md-option>
+					 <md-option value="web">Necesarios</md-option>
 				 </md-select>
 			 </md-input-container>
 
@@ -86,17 +86,6 @@
 				</button>
 			</div>
 	</section>
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>

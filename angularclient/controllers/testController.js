@@ -65,7 +65,7 @@ function testController($scope, testRequest) {
 		}
 		testRequest.add(firstname,lastname).success(function (){
 			$scope.getAllUsers();
-			$(".alert").alert()
+			//$(".alert").alert()
 		});
 	};
 
