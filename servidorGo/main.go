@@ -20,7 +20,7 @@ const (
 	// Host.
 	DbHost = "tcp(127.0.0.1:3306)"
 	// Nombre de la Base de Datos.
-	DbName = "sakila"
+	DbName = "sakila2"
 	// Nombre de Usuario.
 	DbUser = "root"
 	// Contraseña.
@@ -33,8 +33,10 @@ type User struct {
 	ID int64 `db:"id" json:"id"`
 	// Nombre del Usuario.
 	Firstname string `db:"firstname" json:"firstname"`
-	// Aperllido del Usuario.
+	// Apellido del Usuario.
 	Lastname string `db:"lastname" json:"lastname"`
+	// Código del Usuario.
+	Code string `db:"code" json:"code"`
 }
 
 // Cors establece la relacion con los controladores de la parte del cliente.
@@ -114,6 +116,7 @@ func getUser(c *gin.Context) {
 			ID:        user_id,
 			Firstname: user.Firstname,
 			Lastname:  user.Lastname,
+			Code:      user.Code,
 		}
 		c.JSON(200, content)
 	} else {
@@ -126,14 +129,15 @@ func getUser(c *gin.Context) {
 func insertUser(c *gin.Context) {
 	var user User
 	c.Bind(&user)
-	if user.Firstname != "" && user.Lastname != "" {
-		if insert, _ := Dbmap.Exec(`INSERT INTO User (firstname, lastname) VALUES (?, ?)`, user.Firstname, user.Lastname); insert != nil {
+	if user.Firstname != "" && user.Lastname != "" && user.Code != "" {
+		if insert, _ := Dbmap.Exec(`INSERT INTO User (firstname, lastname, code) VALUES (?, ?, ?)`, user.Firstname, user.Lastname, user.Code); insert != nil {
 			user_id, err := insert.LastInsertId()
 			if err == nil {
 				content := &User{
 					ID:        user_id,
 					Firstname: user.Firstname,
 					Lastname:  user.Lastname,
+					Code:      user.Code,
 				}
 				c.JSON(201, content)
 			} else {
@@ -158,8 +162,9 @@ func updateUser(c *gin.Context) {
 			ID:        user_id,
 			Firstname: json.Firstname,
 			Lastname:  json.Lastname,
+			Code:      json.Code,
 		}
-		if user.Firstname != "" && user.Lastname != "" {
+		if user.Firstname != "" && user.Lastname != "" && user.Code != "" {
 			_, err = Dbmap.Update(&user)
 			if err == nil {
 				c.JSON(200, user)

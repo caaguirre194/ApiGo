@@ -5,6 +5,7 @@ angular.module('myApp').controller('testController', ['$scope','testRequest',tes
 function testController($scope, testRequest) {
 	$scope.users={};
 	$scope.user={};
+
 	$scope.getAllUsers = function(){
 		testRequest.users().success(function (data){
 			$scope.users=data; // Asignaremos los datos de todos
@@ -31,7 +32,6 @@ function testController($scope, testRequest) {
 			alert("Usuario Eliminado.");
 			$scope.user.exist=0;
 			$scope.getAllUsers();
-
 		});
 	}
 
@@ -41,15 +41,17 @@ function testController($scope, testRequest) {
 			alert("El usuario debe tener Nombre.");
 			return;
 		}
-
 		var lastname = $scope.user.lastname; //prompt("Enter the user lastname.");
-
 		if(lastname == null){
 			alert("El usuario debe tener Apellido.");
-
 			return;
 		}
-		testRequest.edit($scope.user_id,firstname,lastname).success(function (){
+		var code = $scope.user.code; //prompt("Enter the user code.");
+		if(code == null){
+			alert("El usuario debe tener Código.");
+			return;
+		}
+		testRequest.edit($scope.user_id,firstname,lastname,code).success(function (){
 			$scope.getAllUsers();
 		});
 	};
@@ -63,10 +65,13 @@ function testController($scope, testRequest) {
 		if(lastname == null){
 			return;
 		}
-		testRequest.add(firstname,lastname).success(function (){
+		var code = $scope.user.code; //prompt("Enter the user code.");
+		if(code == null){
+			return;
+		}
+		testRequest.add(firstname,lastname,code).success(function (){
 			$scope.getAllUsers();
 			//$(".alert").alert()
 		});
 	};
-
 }

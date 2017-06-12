@@ -15,19 +15,21 @@ angular.module('testService', [])//Declaramos el modulo
 				global = $http.delete(path+'users/'+id);
 				return global;
 			},
-			add : function(first,last){
+			add : function(first,last,cod){
 				var data = {
 	                firstname: first,
-	                lastname: last
+	                lastname: last,
+									code: cod
 	            };
 
 				global = $http.post(path+'users',data);
 				return global;
 			},
-			edit : function(id,first,last){
+			edit : function(id,first,last,cod){
 				var data = {
 	                firstname: first,
-	                lastname: last
+	                lastname: last,
+									code: cod
 	            };
 
 				global = $http.put(path+'users/'+id,data);
