@@ -2,92 +2,98 @@
 <html ng-app='myApp'>
 <head>
 	<title></title>
-
-<script type="text/javascript" src="libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="libs/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-
-	<script type="text/javascript" src="libs/angular.min.js"></script>
-	<!--Controllers-->
-	<script type="text/javascript" src="controllers/testController.js"></script>
-	<!--Services-->
-	<script type="text/javascript" src="services/testService.js"></script>
-	<nav class="navbar navbar-inverse">
-<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">UD</a>
-	</div>
-	<ul class="nav navbar-nav">
-		<li class="active"><a href="index.html">Home</a></li>
-		<li><a href="http://localhost:8080/api/v1/users">Estudiantes</a></li>
-
-	</ul>
-
-</div>
-</nav>
-</head>
-<body ng-app='myApp' ng-controller="testController">
-	<header class="jumbotron">
-
-<h1>Estudiantes UD</h1>
-
-	</header>
-	<section ng-controller="getAllUsers" class="container-fluid">
-		<section ng-if="users.exist==1" class="col-sm-3 well">
-			<h3 class="glyphicon glyphicon-user"> Activos: </h3>
-			<ul class="nav nav-pills nav-stacked">
-				<li ng-repeat="p in users">
-					<a href="" ng-click="selectId(p.id)" class="glyphicon glyphicon-search">
-						{{p.id + " " + p.firstname + " " + p.lastname+ " " + p.code}}
-					</a>
-				</li>
-			</ul>
-		</section>
-		<section ng-if="user.exist==1" class="col-sm-6">
-			<h3 class="glyphicon glyphicon-user"> Usuario # {{user.id}}</h3>
-			<form>
-				Código: <input type="text" ng-model="user.code"> <br>
-				Nombre: <input type="text" ng-model="user.firstname"> <br>
-				Apellido: <input type="text" ng-model="user.lastname"> <br>
-				<pre>form = {{user | json}}</pre>
-			</form>
-			<hr/>
-		</section>
-		<section ng-if="user.exist!=1" class="col-sm-6">
-			<h3> Nuevo Usuario </h3>
-			<form>
-				Código: <input type="text" ng-model="user.code"> <br>
-				Nombre: <input type="text" ng-model="user.firstname"> <br>
-				Apellido: <input type="text" ng-model="user.lastname"> <br>
-				<md-input-container flex="50">
-				 <label>-></label>
-				 <md-select name="type" ng-model="project.type" required>
-					 <md-option value="app">Datos</md-option>
-					 <md-option value="web">Necesarios</md-option>
-				 </md-select>
-			 </md-input-container>
-
-
-				<pre>form = {{user | json}}</pre>
-				<button class="btn btn-success pull-right" ng-click="add()">
-					<i class="glyphicon glyphicon-plus-sign"></i> Agregar Nuevo Usuario
-				</button>
-				<br></br>
-
-
-			</form>
-			<hr/>
-		</section>
-		<div class="col-sm-3">
-				<button class="btn btn-primary form-control" ng-click="editUser()">
-					<i class="glyphicon glyphicon-edit"></i> Actualizar Usuario
-				</button>
-				<button class="btn btn-danger form-control" ng-click="deleteUser()">
-					<i class="glyphicon glyphicon-remove"></i> Eliminar usuario
-				</button>
+		<script type="text/javascript" src="libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="libs/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<script type="text/javascript" src="libs/angular.min.js"></script>
+		<!--Controllers-->
+		<script type="text/javascript" src="controllers/testController.js"></script>
+		<!--Services-->
+		<script type="text/javascript" src="services/testService.js"></script>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">UD</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="http://localhost:8080/api/v1/users">Estudiantes</a></li>
+				</ul>
 			</div>
+		</nav>
+	</head>
+
+<body ng-app='myApp' ng-controller="testController">
+
+	<header class="jumbotron">
+		<h1>Estudiantes UD</h1>
+	</header>
+
+	<section ng-controller="getAllUsers" class="container-fluid">
+
+	<section ng-if="users.exist==1" class="col-sm-3 well">
+		<h3 class="glyphicon glyphicon-star-user"> Activos: </h3>
+	  <ul class="nav nav-pills nav-stacked">
+			<li ng-repeat="p in users">
+				<a href="" ng-click="selectId(p.id)" class="glyphicon glyphicon-search">{{p.id + " " + p.firstname + " " + p.lastname+ " " + p.code}}</a>
+			</li>
+		</ul>
 	</section>
 
 
-</body>
+  <section ng-if="user.exist==1" class="col-sm-6">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="glyphicon glyphicon-star-user"> Usuario # {{user.id}}</h3>
+			</div>
+			<div class="panel-body">
+			<form>
+					Código: <input type="text" ng-model="user.code"> <br>
+					Nombre: <input type="text" ng-model="user.firstname"> <br>
+					Apellido: <input type="text" ng-model="user.lastname"> <br>
+			 		<pre>form = {{user | json}}</pre>
+				</form>
+			</div>
+				<hr/>
+		</div>
+  </section>
 
+	<section ng-if="user.exist!=1" class="col-sm-6">
+		<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="glyphicon glyphicon-star-empty"> Nuevo Usuario </h3>
+		</div>
+			<div class="panel-body">
+				<form>
+					Código: <input type="text" ng-model="user.code"> <br>
+					Nombre: <input type="text" ng-model="user.firstname"> <br>
+					Apellido: <input type="text" ng-model="user.lastname"> <br>
+						<md-input-container flex="50">
+			 				<label>-></label>
+			 				<md-select name="type" ng-model="project.type" required>
+								<md-option value="app">Datos</md-option>
+				 				<md-option value="web">Necesarios</md-option>
+			 				</md-select>
+		 				</md-input-container>
+		 			<pre>form = {{user | json}}</pre>
+					<button class="btn btn-success pull-right" ng-click="add()">
+						<i class="glyphicon glyphicon-plus-sign"></i> Agregar Nuevo Usuario
+					</button>
+					<br></br>
+			</form>
+			</div>
+		</div>
+		<hr/>
+	</section>
+
+	<div class="col-sm-3">
+		<button class="btn btn-primary form-control" ng-click="editUser()">
+				<i class="glyphicon glyphicon-edit"></i> Actualizar Usuario
+		</button>
+		<button class="btn btn-danger form-control" ng-click="deleteUser()">
+				<i class="glyphicon glyphicon-trash"></i> Eliminar usuario
+		</button>
+	</div>
+</section>
+
+</body>
 </html>
