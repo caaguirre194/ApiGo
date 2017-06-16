@@ -14,7 +14,9 @@ Using:
 # Despliegue de aplicación:
 > ## Requisitos previos:
 > - Tener instalado el sistema de gestión de bases de datos relacional MySQL.
-> ![Logo](/img/mysql.png)
+	
+![Logo](/img/mysql.png)
+
 > - Crear una base de datos con las sigientes caracteristicas o bien modificar la variable *const* a conveniencia en main.go:
 
 ```go
@@ -30,7 +32,8 @@ Using:
 		
 ```	
 > - Tener instalado un entorno de desarrollo web como lo es WampServer para Windows, el cual permite crear aplicaciones web con Apache2 y una base de datos MySQL.
-> ![Logo](/img/wamp.png)
+ 
+![Logo](/img/wamp.png)
 
 ## Ejecución:
 > - Ejecutar el documento main.go mediante el comando *go run main.go* en el respectivo directorio del servidor de la aplicación. 
