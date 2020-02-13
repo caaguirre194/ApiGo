@@ -48,6 +48,6 @@ Using:
 ![Logo](/img/page3.png)
 
 Autor:
-*  [GitHub](https://github.com/AndresWick)
-	 @AndresWick
+*  [GitHub](https://github.com/caaguirre194)
+	 @caaguirre194
 
